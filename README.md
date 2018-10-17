@@ -3,6 +3,15 @@
 En el siguiente taller, veremos como crear de manera simple una máquina virtual Linux en Azure y subir en ella una aplicación web 
 creada con .Net Core 2.0
 
+## Tabla de contenido
+1. [Creando la máquina](#creando-la-máquina)
+2. [Configurando](#configurando)
+3. [Creando la aplicación web](#creando-la-aplicación-web)
+4. [Publicando](#publicando)
+5. [Verificando](#verificando)
+6. [Probando](#probando)
+7. [Conclusión](#conclusión)
+
 ## Creando la máquina
 Lo primero que debemos hacer, es crear una cuenta en Azure, ya sea premium o de evaluación gratuita. Una vez terminado el 
 paso anterior, procedemos a crear nuestra máquina virtual **Ubuntu Server 18**  
