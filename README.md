@@ -6,12 +6,19 @@ creada con .Net Core 2.0
 ## Creando la máquina
 Lo primero que debemos hacer, es crear una cuenta en Azure, ya sea premium o de evaluación gratuita. Una vez terminado el 
 paso anterior, procedemos a crear nuestra máquina virtual **Ubuntu Server 18**  
-[!ubuntu1()]
-[!ubuntu1()]
+![Ubuntu1](https://github.com/Joac89/AspNetCoreLinux/blob/master/blog/5-crearMaquinaLinux.JPG)
+![Ubuntu2](https://github.com/Joac89/AspNetCoreLinux/blob/master/blog/6-maquinaLinux.JPG)
+**Validamos la máquina virtual**  
+![Ubuntu3](https://github.com/Joac89/AspNetCoreLinux/blob/master/blog/7-validacion.JPG)
+**Máquina virtual creada**
+![Ubuntu2](https://github.com/Joac89/AspNetCoreLinux/blob/master/blog/8-creada.JPG)
 
 ## Configurando
 Una vez creada nuestra máquina virtual, ejecutaremos los siguientes comandos con los que instalaremos el SDK de .Net Core en Linux.
 El artículo en donde detallan cada uno de los comandos se encuentra en: 
+
+https://www.swhosting.com/blog/tutorial-crea-una-web-asp-net-core-mvc-en-linux-con-apache/  
+https://blog.todotnet.com/2017/07/publishing-and-running-your-asp-net-core-project-on-linux/
 
 **Instalamos el SDK**  
 ```
@@ -28,7 +35,7 @@ El artículo en donde detallan cada uno de los comandos se encuentra en:
   sudo apt-get install dotnet-sdk-2.1 
 ```
 **Instalamos y configuramos Apache**  
-Con los siguientes comandos, instalamos apache en ubuntu, y activamos los módulos a activar requeridos para convertirlo 
+Con los siguientes comandos, instalamos apache en ubuntu, y activamos los módulos requeridos para convertirlo 
 en Proxy inverso
 ```
   sudo apt-get install apache2
@@ -38,7 +45,9 @@ en Proxy inverso
 ```
 **Configuramos el entorno para nuestra aplicación Aspnet Core**  
 Luego de activar los módulos de apache y de haberlo instalado, crearemos el host virtual que alojará el proxy 
-inverso descrito anteriormente
+inverso descrito anteriormente.
+
+Creamos el archivo de configuración para nuestra aplicación  
 ```
   sudo nano /etc/apache2/conf-enabled/aspnetcorelinux.conf
 ```
@@ -60,23 +69,27 @@ guardamos los cambios del archivo y ejecutamos lo siguiente para verificar que h
 
 ## Creando la aplicación web
 Creamos una aplicación web AspNet Core 2.0 desde VisualStudio  
-[imagen]
+![App1](https://github.com/Joac89/AspNetCoreLinux/blob/master/blog/2-appweb.JPG)
+![App2](https://github.com/Joac89/AspNetCoreLinux/blob/master/blog/3-appweb.JPG)
+**Nuestro proyecto debe quedar así:***   
+![App3](https://github.com/Joac89/AspNetCoreLinux/blob/master/blog/4-appweb.JPG)
 
 ## Publicando
 Luego de crearla, probamos la aplicación y publicamos localmente. Los archivos generados en la publicación, los comprimimos 
 en un .ZIP para subirlos al servidor Ubuntu  
-[imagen]
 
-## Desplegando
+Para publicar, damos click derecho sobre la aplicación, luego en **Publicar** y seleccionamos archivos locales y una ubicación en 
+el disco en donde se crearán los archivos publicados.
+
 Teniendo ya el archivo local de la publicación, lo subimos desde la terminal  
-[imagen]
+![Pub1](https://github.com/Joac89/AspNetCoreLinux/blob/master/blog/1-subir-app.JPG)
 
 Luego de subirlo, movemos el archivo desde su origen (en éste caso /home/mymaquina) hasta el lugar donde tendremos el sitio 
 de .Net Core que en este caso sería (/var/aspnetcorelinux). Ya teniendo el archivo, lo descomprimimos y verificamos que en la carpeta 
 /var/aspnetcorelinux/ se encuentren los archivos de la aplicación.  
 
 ## Verificando
-Al tener la aplicación en el servidor, nos queda un último paso
+Al tener la aplicación en el servidor, nos queda un último paso el cual consiste en crear un archivo de servicio para desplegar y monitorear la aplicación
 ```
   sudo nano /etc/systemd/system/kestrel-aspnetcorelinux.service
 ```
