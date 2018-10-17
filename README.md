@@ -124,8 +124,8 @@ Lanzamos nuestra aplicación con los siguientes comandos y listo!!
 ```
 ## Probando
 Probemos ahora nuestro sitio en .Net Core desde una máquina virtual Ubuntu en Azure  
-[imagen]
+![End1](https://github.com/Joac89/AspNetCoreLinux/blob/master/blog/9-final.JPG)
 
 ## Conclusión
 Con éste taller logramos experimentar que la nueva tecnología de Microsoft es realmente multiplataforma y sencilla de implementar en 
-sistemas operativos diferentes a Windows y en servidores de aplicaciones diferentes a IIS (el temido IIS)
+sistemas operativos diferentes a Windows y en servidores de aplicaciones diferentes a IIS.
